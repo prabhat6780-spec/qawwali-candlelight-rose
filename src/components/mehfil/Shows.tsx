@@ -8,7 +8,7 @@ export function Shows() {
         <h2 className="font-display text-6xl leading-[0.9] md:text-[9rem]">
           Mehfil <span className="italic text-gold">passes</span>
         </h2>
-        <span className="label-caps hidden text-muted-foreground md:block">( Live · 04 )</span>
+        <span className="label-caps hidden text-muted-foreground md:block">( Live · 06 )</span>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

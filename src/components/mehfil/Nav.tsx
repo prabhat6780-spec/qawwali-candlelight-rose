@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 const items = [
   { id: "story", label: "Story" },
   { id: "music", label: "Music" },
+  { id: "film", label: "Film" },
+  { id: "mala", label: "Shorts" },
   { id: "taali", label: "Taali" },
   { id: "mehfil", label: "Live" },
 ];

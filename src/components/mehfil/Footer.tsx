@@ -4,7 +4,7 @@ import { LINKS } from "./data";
 const socials = [
   { label: "Instagram", sub: "@sagarthesoul", href: LINKS.instagram },
   { label: "Instagram", sub: "@sagarkigehrai_", href: LINKS.instagramQawwali },
-  { label: "YouTube", sub: "SagarBhatiaOfficial", href: LINKS.youtube },
+  { label: "YouTube", sub: "Sagar Bhatia", href: LINKS.youtube },
   { label: "Spotify", sub: "Sagar Bhatia", href: LINKS.spotify },
 ];
 
@@ -13,14 +13,14 @@ export function Footer() {
     <footer className="grain relative overflow-hidden border-t border-border px-5 pt-24 pb-8 md:px-10">
       <div className="grid gap-12 md:grid-cols-2">
         <div>
-          <p className="label-caps text-gold">( Shukriya · 05 )</p>
+          <p className="label-caps text-gold">( Shukriya · 07 )</p>
           <p className="mt-6 max-w-md font-display text-3xl leading-snug italic md:text-4xl">
             Come for the music, stay for the sukoon.
           </p>
         </div>
         <ul className="grid grid-cols-2 gap-px bg-border">
           {socials.map((s) => (
-            <li key={s.sub} className="bg-background">
+            <li key={s.href} className="bg-background">
               <a
                 href={s.href}
                 target="_blank"

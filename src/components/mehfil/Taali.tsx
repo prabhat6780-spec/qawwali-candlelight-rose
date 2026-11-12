@@ -51,7 +51,7 @@ export function Taali() {
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
       <div className="relative flex flex-col items-center px-5 text-center">
-        <p className="label-caps text-gold">( Interactive · 03 )</p>
+        <p className="label-caps text-gold">( Interactive · 05 )</p>
         <h2 className="mt-6 font-display text-5xl leading-[0.95] md:text-8xl">
           A qawwali needs <span className="italic text-gold">your taali</span>
         </h2>
