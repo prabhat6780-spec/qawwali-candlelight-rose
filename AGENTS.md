@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- The site is a single-page experience in `src/routes/index.tsx`; its sections live in `src/components/mehfil/`, with shared content (tracks, timeline, shows, links) in `src/components/mehfil/data.ts` — keep copy edits there.
+- Sound is synthesized in `src/lib/mehfil-audio.ts` with Web Audio and only starts after a user click — browsers block autoplay, and it keeps the site free of audio files.
+- Smooth scroll uses one Lenis instance shared via `src/lib/smooth-scroll.ts`; navigate with `scrollToId` so links stay in sync with it.

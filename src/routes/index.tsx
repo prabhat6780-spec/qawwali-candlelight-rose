@@ -1,23 +1,102 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import Lenis from "lenis";
+import { IntroGate } from "@/components/mehfil/IntroGate";
+import { Nav } from "@/components/mehfil/Nav";
+import { Hero } from "@/components/mehfil/Hero";
+import { Marquee } from "@/components/mehfil/Marquee";
+import { Quote } from "@/components/mehfil/Quote";
+import { Story } from "@/components/mehfil/Story";
+import { Music } from "@/components/mehfil/Music";
+import { Taali } from "@/components/mehfil/Taali";
+import { Shows } from "@/components/mehfil/Shows";
+import { Footer } from "@/components/mehfil/Footer";
+import { Petals } from "@/components/mehfil/Petals";
+import { Cursor } from "@/components/mehfil/Cursor";
+import { smooth } from "@/lib/smooth-scroll";
+import { startDrone, stopDrone } from "@/lib/mehfil-audio";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Sagar Bhatia — Sagar Wali Qawwali | Official Site" },
+      {
+        name: "description",
+        content:
+          "Step into the mehfil. Sagar Bhatia's qawwali, Sufi songs like Khudaya and Raazdaariyan, his story and live shows.",
+      },
+      { property: "og:title", content: "Sagar Bhatia — Sagar Wali Qawwali" },
+      {
+        property: "og:description",
+        content: "Qawwali, re-dressed for a new generation. Enter the mehfil.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [gate, setGate] = useState(true);
+  const [entered, setEntered] = useState(false);
+  const [soundOn, setSoundOn] = useState(false);
+
+  useEffect(() => {
+    const lenis = new Lenis({ lerp: 0.09 });
+    smooth.lenis = lenis;
+    let raf = 0;
+    const loop = (t: number) => {
+      lenis.raf(t);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => {
+      cancelAnimationFrame(raf);
+      lenis.destroy();
+      smooth.lenis = null;
+      stopDrone();
+    };
+  }, []);
+
+  useEffect(() => {
+    const l = smooth.lenis;
+    if (!l) return;
+    if (gate) {
+      window.scrollTo(0, 0);
+      l.stop();
+    } else l.start();
+  }, [gate]);
+
+  const handleEnter = (withSound: boolean) => {
+    setEntered(true);
+    if (withSound) {
+      startDrone();
+      setSoundOn(true);
+    }
+  };
+
+  const toggleSound = () => {
+    if (soundOn) stopDrone();
+    else startDrone();
+    setSoundOn(!soundOn);
+  };
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative bg-background text-foreground">
+      {gate && <IntroGate onEnter={handleEnter} onDone={() => setGate(false)} />}
+      <Cursor />
+      <Petals />
+      <Nav visible={entered} soundOn={soundOn} onToggleSound={toggleSound} />
+      <Hero show={entered} />
+      <Marquee />
+      <Quote />
+      <Story />
+      <Marquee reverse />
+      <Music />
+      <Taali />
+      <Shows />
+      <Footer />
+    </main>
   );
 }
