@@ -6,15 +6,11 @@ https://labellavista.es/
 
 https://ty1official.com/
 
-
-
 https://www.instagram.com/sagarthesoul/
 
 https://www.instagram.com/sagarkigehrai_/
 
-
-
-I want to make a website for Sagar Bhatia artist  in which we want aesthetic website,   but not a  basic website  and want some uniqness   in the website  that everyone attracts it more   having   the  animations  related to artist i shared 2-3 website  like that  but not same at all     i also share the this 2 instgram urls  of sagar bhatia     give me designs   based on this
+I want to make a website for Sagar Bhatia artist in which we want aesthetic website, but not a basic website and want some uniqness in the website that everyone attracts it more having the animations related to artist i shared 2-3 website like that but not same at all i also share the this 2 instgram urls of sagar bhatia give me designs based on this
 
 This project was built with [Lovable](https://lovable.dev).
 

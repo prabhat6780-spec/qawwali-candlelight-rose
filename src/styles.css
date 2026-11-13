@@ -65,7 +65,6 @@
 
   --font-display: "Bodoni Moda", "Didot", serif;
   --font-sans: "Manrope", system-ui, sans-serif;
-  --font-urdu: "Noto Nastaliq Urdu", serif;
   --font-hindi: "Tiro Devanagari Hindi", serif;
 
   --animate-spin-slow: spin 28s linear infinite;
@@ -80,7 +79,7 @@
 :root {
   --radius: 0.25rem;
 
-  --ink: oklch(0.12 0.012 45);
+  --ink: oklch(0.2 0.012 45);
   --ivory: oklch(0.94 0.025 85);
   --gold: oklch(0.8 0.12 80);
   --gold-soft: oklch(0.62 0.08 75);
@@ -90,15 +89,15 @@
 
   --background: var(--ink);
   --foreground: var(--ivory);
-  --card: oklch(0.16 0.015 45);
+  --card: oklch(0.24 0.015 45);
   --card-foreground: var(--ivory);
-  --popover: oklch(0.16 0.015 45);
+  --popover: oklch(0.24 0.015 45);
   --popover-foreground: var(--ivory);
   --primary: var(--gold);
   --primary-foreground: var(--ink);
-  --secondary: oklch(0.2 0.02 45);
+  --secondary: oklch(0.28 0.02 45);
   --secondary-foreground: var(--ivory);
-  --muted: oklch(0.19 0.015 45);
+  --muted: oklch(0.27 0.015 45);
   --muted-foreground: oklch(0.7 0.03 80);
   --accent: var(--rose);
   --accent-foreground: var(--ivory);
@@ -136,26 +135,56 @@
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 @keyframes flicker {
-  0%, 100% { opacity: 1; filter: drop-shadow(0 0 18px color-mix(in oklab, var(--gold) 60%, transparent)); }
-  45% { opacity: 0.82; }
-  50% { opacity: 0.95; filter: drop-shadow(0 0 30px color-mix(in oklab, var(--marigold) 70%, transparent)); }
-  55% { opacity: 0.78; }
+  0%,
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px color-mix(in oklab, var(--gold) 60%, transparent));
+  }
+  45% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 30px color-mix(in oklab, var(--marigold) 70%, transparent));
+  }
+  55% {
+    opacity: 0.78;
+  }
 }
 @keyframes pulse-ring {
-  0% { transform: scale(0.85); opacity: 0.7; }
-  100% { transform: scale(1.9); opacity: 0; }
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
 }
 @keyframes eq {
-  0%, 100% { transform: scaleY(0.3); }
-  50% { transform: scaleY(1); }
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
 }
 @keyframes shimmer {
-  from { background-position: 0% 50%; }
-  to { background-position: 200% 50%; }
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
 }
 
 /* Gold foil text that slowly shimmers */
@@ -187,11 +216,21 @@
   }
 }
 @keyframes grain-shift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-3%, 2%); }
-  50% { transform: translate(2%, -3%); }
-  75% { transform: translate(-2%, -1%); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3%, 2%);
+  }
+  50% {
+    transform: translate(2%, -3%);
+  }
+  75% {
+    transform: translate(-2%, -1%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /* Stage spotlight: reveals the lit layer around --sx/--sy */

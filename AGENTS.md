@@ -1,4 +1,5 @@
 <!-- LOVABLE:BEGIN -->
+
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
 > published git history — force pushing, or rebasing/amending/squashing commits
@@ -27,11 +28,12 @@ use the editor.
   `LOVABLE_API_KEY`. When Lovable does not provide one, users can bring their
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
+
 <!-- LOVABLE:END -->
 
 ## Project rules
 
-- The site is a single-page experience in `src/routes/index.tsx`; its sections live in `src/components/mehfil/`, with shared content (tracks, timeline, shows, links) in `src/components/mehfil/data.ts` — keep copy edits there.
-- Sound is synthesized in `src/lib/mehfil-audio.ts` with Web Audio and only starts after a user click — browsers block autoplay, and it keeps the site free of audio files.
-- Smooth scroll uses one Lenis instance shared via `src/lib/smooth-scroll.ts`; navigate with `scrollToId` so links stay in sync with it.
-- Sagar's YouTube videos (featured film + shorts) are listed in `data.ts` and thumbnails load straight from YouTube; play them only through the shared `VideoLightbox` opened from `src/routes/index.tsx` — it pauses the background drone and locks smooth scroll while a video plays.
+- The site is a single-page experience in `src/routes/index.jsx`; its sections live in `src/components/sections/`, with shared content (tracks, timeline, shows, links) in `src/data/siteData.js` — keep copy edits there.
+- Sound in `src/lib/audio.js` plays Sagar Bhatia's "Sanson Ki Mala Pe" (YouTube yt2O7Gw_4gM) with Web Audio tanpura fallback and only starts after a user click — browsers block autoplay, and it keeps the site lightweight.
+- Smooth scroll uses one Lenis instance shared via `src/lib/smooth-scroll.js`; navigate with `scrollToId` so links stay in sync with it.
+- Sagar's YouTube videos (featured film + shorts) are listed in `siteData.js` and thumbnails load straight from YouTube; play them only through the shared `VideoLightbox` opened from `src/routes/index.jsx` — it pauses the background drone and locks smooth scroll while a video plays.
